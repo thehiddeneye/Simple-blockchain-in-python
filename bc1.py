@@ -13,3 +13,7 @@ class Block:
         encrypt=hasher.sha256()
         encrypt.update(str(self.index)+str(self.timestamp)+str(self.data)+str(self.previous_hash))
         return encrypt.hexdigest()
+    
+    @staticmethod
+    def create_genesis_block():
+        return Block(0,date.datetime.now(),"genesis block","0")
